@@ -75,8 +75,8 @@ Storage.download(value,'my text file');
 
 ### read
 ```javascript
-//read text file
-//second parameter is filename
+//read text file from your hard disk(from input type file). first parameter is file
+//second parameter is a callback for next actions
 let content;
 Storage.read(e.target.files[0],(res)=>content = res);
 ```
