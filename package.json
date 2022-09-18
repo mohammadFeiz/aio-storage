@@ -1,0 +1,19 @@
+{
+  "name": "aio-storage",
+  "version": "1.0.0",
+  "description": "```javascript\r npm install aio-storage\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadFeiz/aio-storage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammadFeiz/aio-storage/issues"
+  },
+  "homepage": "https://github.com/mohammadFeiz/aio-storage#readme"
+}
