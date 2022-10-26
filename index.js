@@ -29,7 +29,15 @@ export default function StorageClass(key){
       this.set();
     },
     getList(){return Object.keys(this.obj.list)},
-    load(name){if(!this.obj){this.init()} return this.obj.list[name]},
+    load(name,def){
+      if(!this.obj){this.init()}
+      let res = this.obj.list[name];
+      if(res === undefined && def !== undefined){
+        this.save(def,name);
+        res = def;
+      }
+      return res;
+    },
     clear(){localStorage.clear(key);},
     reset(){this.set({list:{}})},
     download(file,name) {
