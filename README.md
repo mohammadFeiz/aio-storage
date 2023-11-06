@@ -63,3 +63,19 @@ Storage.remove({name:'date'});
 ```javascript
 Storage.reset();
 ```
+
+### getModel
+##### get storage model contain all saved values
+```javascript
+Storage.getModel();
+```
+### export 
+##### download storage content as a text file. after you can import that. this is for save storage model on local file system and prevent miss it after clearing cache
+```javascript
+Storage.export();
+```
+### import 
+##### read saved text file from export by input file and send it to import method for updating storage, also you can send a callback for call after it(important because import is not an async action). 
+```javascript
+Storage.import({file,callback});
+```
