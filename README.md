@@ -50,6 +50,7 @@ console.log(date) //'2022/3/4'
 ##### for load a value, call instance.load by an object parameter contain: 
 - ##### name : string ( name of saved value )
 - ##### def : any ( if this name is not in storage, def value will save on it and load method will return this value )
+- ##### time : miliseconds number ( setting time is optional . for example if you set it 60000 , storage will load it for 1 minute and after it dont load it )
 
 ##### if use def , then that is not required for save a value , because load method will save it if not exist
 
