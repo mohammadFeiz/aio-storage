@@ -42,10 +42,11 @@ let userInfo = Storage.load({
 });
 let date = Storage.load({
   name:'date',
-  def:'2023/3/3'
+  def:'2023/3/3',
+  time:60000
 });
 console.log(userInfo) //{name:'john',family:'doe'}
-console.log(date) //'2022/3/4'
+console.log(date) //before 1 minute from save it date will be '2022/3/4' and after it date will be 2023/3/3
 ```
 ##### for load a value, call instance.load by an object parameter contain: 
 - ##### name : string ( name of saved value )
