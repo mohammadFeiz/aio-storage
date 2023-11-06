@@ -8,75 +8,58 @@ npm install aio-storage
 ```
 
 ### usage
+##### first import AIOStorage class. then create an instance by a defined key. 
 ```javascript
 import AIOStorage from 'aio-storage';
 
-let Storage = AIOStorage('my key');
+let Storage = new AIOStorage('my key');
 
 ```
 
 ### save
+##### for save a value in localStorage follow below:
 ```javascript
-Storage.save({name:'john',family:'doe'},'userInfo');
-Storage.save('2022/3/4','date');
+Storage.save({
+  name:'userInfo',
+  value:{
+    firstname:'john',
+    lastname:'doe'
+  }
+});
+Storage.save({name:'date',value:'2022/3/4'});
 ```
+##### for save a value call instance.save by an object parameter contain: 
+- ##### name : string ( after you can load this value by this name )
+- ##### value : any ( a value for save in local storage ) 
 
 ### load
-```javascript
-let userInfo = Storage.load('userInfo');
-let date = Storage.load('date');
-//userInfo = {name:'john',family:'doe'}
-//date = '2022/3/4'
-```
+##### for load a value from localStorage follow below:
 
-### getList
 ```javascript
-let list = Storage.getList();
-//list = ['userInfo','date']
+let userInfo = Storage.load({
+  name:'userInfo',
+  def:{}
+});
+let date = Storage.load({
+  name:'date',
+  def:'2023/3/3'
+});
+console.log(userInfo) //{name:'john',family:'doe'}
+console.log(date) //'2022/3/4'
 ```
+##### for load a value, call instance.load by an object parameter contain: 
+- ##### name : string ( name of saved value )
+- ##### def : any ( if this name is not in storage, def value will save on it and load method will return this value )
+
+##### if use def , then that is not required for save a value , because load method will save it if not exist
+
 ### remove
+##### remove a value from storage by send its name
 ```javascript
-Storage.remove('date');
-let list = Storage.getList();
-//list = ['userInfo']
+Storage.remove({name:'date'});
 ```
 ### reset
+##### localStorage will reset and all values will be removed
 ```javascript
 Storage.reset();
-let list = Storage.getList();
-//list = []
-```
-### import
-```javascript
-//import saved database in text file to Storage class
-//open text file by input type file and in onchange event write these codes:
-//send a callback as second parameter for actions after import
-let list = [];
-Storage.import(e.target.files[0],()=>{
-  list = Storage.getList();
-  //.....
-});
-
-```
-
-### export
-```javascript
-//download saved database in text file to your hard disk
-//this function will ask you filename by propmt
-Storage.export();
-```
-
-### download
-```javascript
-//download any value in text file (value is first parameter)
-//second parameter is filename
-Storage.download(value,'my text file');
-```
-
-### read
-```javascript
-//read text file from your hard disk(from input type file). first parameter is file
-//second parameter is a callback for next actions
-let content;
-Storage.read(e.target.files[0],(res)=>content = res);
 ```
