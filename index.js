@@ -133,7 +133,7 @@ export default function StorageClass(key){
       this.saveStorage()
     },
     download({file,name}) {
-      name = this.getNameByPropmt(name,'Inter file name');
+      name = name || window.prompt('Inter file name');
       if(!name || name === null){return}
       let text = JSON.stringify(file)
       var element = document.createElement('a');
